@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+    <script>
+      ;(function () {
+        var l = window.location
+        var pathParts = l.pathname.split('/').filter(Boolean)
+        var first = pathParts[0] || ''
+        var known = {
+          'what-we-do': true,
+          'service-objects': true,
+          'service-results': true,
+          'join-us': true,
+          'about-us': true,
+          admin: true,
+          'submit-object': true,
+        }
+
+        var base = known[first] ? '' : first
+        var relativePath = known[first]
+          ? l.pathname
+          : l.pathname.slice(('/' + base).length) || '/'
+
+        var repoPrefix = base ? '/' + base : ''
+        l.replace(
+          l.protocol +
+            '//' +
+            l.host +
+            repoPrefix +
+            '/?/' +
+            relativePath.slice(1).replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        )
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>
