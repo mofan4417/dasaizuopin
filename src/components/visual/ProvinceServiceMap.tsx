@@ -281,7 +281,7 @@ export default function ProvinceServiceMap({ className = '' }: ProvinceServiceMa
         </div>
       </div>
 
-      <div className="flex h-full min-h-0 flex-col gap-4">
+      <div className="panel-scrollbar panel-scroll-fade flex h-full min-h-0 flex-col gap-4 overflow-y-auto pr-1">
         <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-5 backdrop-blur-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
           <div className="text-[11px] font-black uppercase tracking-[0.22em] text-white/35">Focused Province</div>
           <div className="mt-1 flex items-end justify-between gap-4">
