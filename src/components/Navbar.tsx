@@ -84,7 +84,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-[100] flex min-h-[72px] w-full items-center justify-between px-6 py-4 transition-all duration-500 md:px-8 ${
+      className={`fixed left-0 right-0 top-0 z-[100] flex items-center justify-between px-4 py-8 transition-all duration-500 md:px-24 ${
         isHome ? 'bg-transparent' : 'border-b border-white/5 bg-[#0A0505]/80 backdrop-blur-xl shadow-2xl'
       }`}
       style={{
@@ -98,13 +98,13 @@ const Navbar = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-br from-[#8B0000] to-[#722F37] text-xs font-black text-white shadow-lg transition-transform duration-500 group-hover:scale-110">
             XZQ
           </div>
-          <span className="max-w-[180px] truncate text-2xl font-black tracking-tighter text-white transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-[#8B0000] group-hover:to-[#D4AF37] group-hover:bg-clip-text group-hover:text-transparent">
+          <span className="text-2xl font-black tracking-tighter text-white transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-[#8B0000] group-hover:to-[#D4AF37] group-hover:bg-clip-text group-hover:text-transparent">
             乡助桥
           </span>
         </Link>
       </div>
 
-      <div className="nav-links items-center gap-10">
+      <div className="hidden items-center gap-12 lg:flex">
         {navLinks.map((link) => (
           <Link
             key={link.path}
@@ -163,7 +163,7 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => setMobileOpen((value) => !value)}
-          className="nav-toggle flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10"
+          className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 lg:hidden"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>

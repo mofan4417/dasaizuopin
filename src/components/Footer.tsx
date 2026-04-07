@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full max-w-[100vw] bg-[#0A0505]/60 backdrop-blur-[40px] text-white/50 py-20 px-6 md:px-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 md:grid-cols-4">
+    <footer className="bg-[#0A0505]/60 backdrop-blur-[40px] text-white/50 py-20 px-4 md:px-24 border-t border-white/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-6 h-6 bg-[#8B0000] rounded-sm flex items-center justify-center text-white font-black text-[8px] border border-white/10">CMO</div>
             <span className="text-xl font-black tracking-tight text-white">乡助桥</span>
           </div>
-          <p className="break-words text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed">
             连接城市大学生与乡村留守群体，让每一份陪伴都充满温度。
           </p>
         </div>
@@ -42,8 +42,8 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto mt-20 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 text-center text-xs md:flex-row md:text-left">
-        <p className="break-words">© 2026 乡助桥项目团队. All rights reserved.</p>
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs">
+        <p>© 2026 乡助桥项目团队. All rights reserved.</p>
         <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg">
           <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse"></span>
           <span>提供技术支持</span>

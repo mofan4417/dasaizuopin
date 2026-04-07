@@ -172,9 +172,9 @@ const VolunteerCenter = () => {
         <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(rgba(185,28,28,0.35)_1px,transparent_1px)] [background-size:28px_28px]" />
       </div>
 
-      <main className="relative min-h-screen px-4 pb-6 pt-6 lg:px-8 lg:pt-8">
-        <div className="mx-auto flex w-full max-w-[1920px] flex-col gap-6 rounded-[34px] border border-white/8 bg-[rgba(18,7,7,0.82)] p-5 shadow-[0_32px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:flex-row">
-          <aside className="flex w-full shrink-0 flex-col rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(41,13,13,0.95)_0%,rgba(16,7,7,0.92)_100%)] p-6 lg:w-[30%] lg:max-h-[80vh] lg:max-w-[360px] lg:overflow-y-auto xl:w-[320px]">
+      <main className="relative h-screen px-6 pb-6 pt-28 lg:px-8">
+        <div className="mx-auto flex h-full max-w-[1920px] gap-6 rounded-[34px] border border-white/8 bg-[rgba(18,7,7,0.82)] p-5 shadow-[0_32px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+          <aside className="flex w-[320px] shrink-0 flex-col rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(41,13,13,0.95)_0%,rgba(16,7,7,0.92)_100%)] p-6">
             <div className="mb-8 flex items-center gap-4">
               <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03]">
                 {profileForm.avatar_url ? (
@@ -233,7 +233,7 @@ const VolunteerCenter = () => {
                 <p className="mt-3 text-base leading-7 text-white/48">{currentMeta.subtitle}</p>
               </div>
 
-              <div className="grid w-full shrink-0 gap-3 [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]">
+              <div className="grid shrink-0 grid-cols-3 gap-3">
                 <div className="rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4">
                   <div className="text-[11px] font-black uppercase tracking-[0.24em] text-white/35">等级</div>
                   <div className="mt-3 text-3xl font-black text-white">LV.{level}</div>
@@ -252,7 +252,7 @@ const VolunteerCenter = () => {
             <div className="min-h-0 flex-1 overflow-hidden rounded-[28px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(139,0,0,0.2),transparent_40%),rgba(255,255,255,0.02)] p-5">
               <AnimatePresence mode="wait">
                 {activeTab === 'elderly' && (
-                  <motion.div key="elderly" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[0.78fr_1.22fr]">
+                  <motion.div key="elderly" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-[0.78fr_1.22fr] gap-5">
                     <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(52,16,16,0.92),rgba(19,8,8,0.92))] p-7">
                       <div className="mb-5 text-3xl font-black text-white">老人帮扶概览</div>
                       <div className="grid gap-4">
@@ -266,7 +266,7 @@ const VolunteerCenter = () => {
                 )}
 
                 {activeTab === 'children' && (
-                  <motion.div key="children" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[0.78fr_1.22fr]">
+                  <motion.div key="children" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-[0.78fr_1.22fr] gap-5">
                     <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(52,16,16,0.92),rgba(19,8,8,0.92))] p-7">
                       <div className="mb-5 text-3xl font-black text-white">儿童帮扶概览</div>
                       <div className="grid gap-4">
@@ -280,7 +280,7 @@ const VolunteerCenter = () => {
                 )}
 
                 {activeTab === 'level' && (
-                  <motion.div key="level" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[0.8fr_1.2fr]">
+                  <motion.div key="level" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-[0.8fr_1.2fr] gap-5">
                     <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(52,16,16,0.92),rgba(19,8,8,0.92))] p-7">
                       <div className="text-[11px] font-black uppercase tracking-[0.26em] text-white/35">当前等级</div>
                       <div className="mt-4 text-[92px] font-black leading-none text-white">LV.{level}</div>
@@ -289,7 +289,7 @@ const VolunteerCenter = () => {
                           <span className="font-bold text-white/75">距离下一级</span>
                           <span className="font-black text-[#F6D365]">{xpToNextLevel} XP</span>
                         </div>
-                        <div className="h-4 w-full max-w-[300px] overflow-hidden rounded-full bg-white/[0.05]">
+                        <div className="h-4 overflow-hidden rounded-full bg-white/[0.05]">
                           <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${progressWidth}%` }}
@@ -317,7 +317,7 @@ const VolunteerCenter = () => {
                 )}
 
                 {activeTab === 'settings' && (
-                  <motion.div key="settings" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-1 gap-5 lg:grid-cols-2">
+                  <motion.div key="settings" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="grid h-full grid-cols-2 gap-5">
                     <form onSubmit={saveProfile} className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(52,16,16,0.92),rgba(19,8,8,0.92))] p-7">
                       <div className="mb-6 flex items-center gap-3 text-2xl font-black text-white">
                         <Camera className="h-5 w-5 text-[#F6D365]" /> 资料设置
