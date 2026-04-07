@@ -66,7 +66,7 @@ const GameStats = () => {
         <motion.div 
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="group relative bg-[#1A0707]/60 backdrop-blur-[40px] border border-white/10 rounded-[32px] p-7 shadow-[0_32px_64px_rgba(0,0,0,0.5)] w-[320px] overflow-hidden"
+          className="group relative w-full max-w-[320px] overflow-hidden rounded-[32px] border border-white/10 bg-[#1A0707]/60 p-7 shadow-[0_32px_64px_rgba(0,0,0,0.5)] sm:w-[320px]"
         >
           {/* 关闭按钮 */}
           <motion.button
@@ -149,7 +149,7 @@ const GameStats = () => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="bg-[#1A0707]/40 backdrop-blur-[30px] border border-white/10 rounded-[28px] p-6 shadow-2xl w-[320px]"
+          className="w-full max-w-[320px] rounded-[28px] border border-white/10 bg-[#1A0707]/40 p-6 shadow-2xl backdrop-blur-[30px] sm:w-[320px]"
         >
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">

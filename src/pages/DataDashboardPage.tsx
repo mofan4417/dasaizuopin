@@ -227,16 +227,16 @@ export default function DataDashboardPage() {
     'relative rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] backdrop-blur-[24px] shadow-[0_22px_60px_rgba(0,0,0,0.24)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent';
 
   return (
-    <div className="h-screen overflow-hidden bg-[#120505] text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[#120505] text-white">
       <Navbar />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-[1920px] px-8 pb-7 pt-[118px] xl:px-12">
+      <div className="dashboard-wrap relative z-10 mx-auto h-full w-full max-w-[1920px] px-6 pb-7 pt-[118px] md:px-8 xl:px-12">
         <div
-          className="mx-auto w-full"
+          className="dashboard-frame mx-auto w-full"
           style={{ maxWidth: 'min(1720px, calc((100vh - 168px) * 1.7778))' }}
         >
           <div
-            className="relative overflow-hidden rounded-[38px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,6,6,0.84),rgba(10,4,4,0.94))] shadow-[0_40px_120px_rgba(0,0,0,0.36)]"
+            className="dashboard-shell relative overflow-hidden rounded-[38px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,6,6,0.84),rgba(10,4,4,0.94))] shadow-[0_40px_120px_rgba(0,0,0,0.36)]"
             style={{ height: 'min(1080px, calc(100vh - 168px))' }}
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(212,175,55,0.08),transparent_28%),radial-gradient(circle_at_76%_30%,rgba(139,0,0,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_22%)]" />
@@ -333,7 +333,7 @@ export default function DataDashboardPage() {
                 <section className="h-full w-full min-w-full flex-none overflow-hidden p-3 xl:p-4">
                   <div className="grid h-full min-h-0 gap-5 xl:grid-cols-[0.74fr_1.26fr]">
                     <div className="grid h-full min-h-0 gap-5 xl:grid-rows-[0.46fr_0.54fr]">
-                      <div className="grid gap-4 md:grid-cols-2">
+                    <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
                         {statCards.map((card) => {
                           const Icon = card.icon;
                           return (

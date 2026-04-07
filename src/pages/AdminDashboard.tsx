@@ -141,15 +141,15 @@ const AdminDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#090404] text-[#F5EDE8]">
+    <div className="min-h-screen overflow-x-hidden bg-[#090404] text-[#F5EDE8]">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(212,175,55,0.12),transparent_26%),radial-gradient(circle_at_76%_22%,rgba(139,0,0,0.18),transparent_26%),linear-gradient(180deg,#130707_0%,#060202_100%)]" />
         <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(rgba(185,28,28,0.35)_1px,transparent_1px)] [background-size:28px_28px]" />
       </div>
 
-      <div className="relative h-screen p-6 lg:p-8">
-        <div className="mx-auto flex h-full max-w-[1920px] gap-6 rounded-[34px] border border-white/8 bg-[rgba(18,7,7,0.82)] p-5 shadow-[0_32px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-          <aside className="flex w-[320px] shrink-0 flex-col rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(41,13,13,0.95)_0%,rgba(16,7,7,0.92)_100%)] p-6">
+      <div className="relative min-h-screen p-4 lg:p-8">
+        <div className="mx-auto flex w-full max-w-[1920px] flex-col gap-6 rounded-[34px] border border-white/8 bg-[rgba(18,7,7,0.82)] p-5 shadow-[0_32px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:flex-row">
+          <aside className="flex w-full shrink-0 flex-col rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(41,13,13,0.95)_0%,rgba(16,7,7,0.92)_100%)] p-6 lg:w-[30%] lg:max-h-[80vh] lg:max-w-[360px] lg:overflow-y-auto xl:w-[320px]">
             <div className="mb-8 flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#B91C1C] to-[#7F1D1D] text-lg font-black text-white">XZQ</div>
               <div>
@@ -217,7 +217,7 @@ const AdminDashboard = () => {
                 <h1 className="text-[40px] font-black leading-none tracking-tight text-white">{tabMeta[activeTab].title}</h1>
                 <p className="mt-3 text-base leading-7 text-white/48">{tabMeta[activeTab].subtitle}</p>
               </div>
-              <div className="grid shrink-0 grid-cols-3 gap-3">
+              <div className="grid w-full shrink-0 gap-3 [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]">
                 <StatCard label="Live" value={currentLive} desc="当前在线人数" />
                 <StatCard label="待审批" value={volunteers.length} desc="志愿者申请" />
                 <StatCard label="对象审核" value={objects.length} desc="老人儿童样本" />
@@ -227,7 +227,7 @@ const AdminDashboard = () => {
             <div className="min-h-0 flex-1 overflow-hidden rounded-[28px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(139,0,0,0.2),transparent_40%),rgba(255,255,255,0.02)] p-5">
               <AnimatePresence mode="wait">
                 {activeTab === 'live' && (
-                  <motion.div key="live" {...panelMotion} className="grid h-full grid-cols-[1.2fr_0.8fr] gap-5">
+                  <motion.div key="live" {...panelMotion} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[1.2fr_0.8fr]">
                     <div className="grid grid-rows-[0.86fr_0.14fr] gap-5">
                       <div className="grid grid-cols-[0.94fr_1.06fr] gap-5">
                         <div className="relative overflow-hidden rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(55,16,16,0.9),rgba(23,8,8,0.92))] p-8">
@@ -321,7 +321,7 @@ const AdminDashboard = () => {
                 )}
 
                 {activeTab === 'volunteers' && (
-                  <motion.div key="volunteers" {...panelMotion} className="grid h-full grid-cols-[0.82fr_1.18fr] gap-5">
+                  <motion.div key="volunteers" {...panelMotion} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[0.82fr_1.18fr]">
                     <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(48,14,14,0.92),rgba(19,8,8,0.92))] p-7">
                       <div className="mb-6 flex items-center justify-between">
                         <div className="text-3xl font-black text-white">待处理志愿者</div>
@@ -334,12 +334,12 @@ const AdminDashboard = () => {
                       </div>
                     </div>
                     <div className="overflow-hidden rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(22,9,9,0.95),rgba(14,7,7,0.92))]">
-                      <div className="grid grid-cols-[1.2fr_1.4fr_1fr_0.7fr_0.9fr] border-b border-white/8 px-7 py-5 text-[11px] font-black uppercase tracking-[0.24em] text-white/35">
+                      <div className="grid grid-cols-1 gap-2 border-b border-white/8 px-7 py-5 text-[11px] font-black uppercase tracking-[0.24em] text-white/35 md:grid-cols-[1.2fr_1.4fr_1fr_0.7fr_0.9fr]">
                         <div>申请志愿者</div><div>擅长方向</div><div>地区</div><div>状态</div><div className="text-right">操作</div>
                       </div>
                       <div className="grid h-[calc(100%-72px)] auto-rows-fr divide-y divide-white/6">
                         {volunteers.map((item, index) => (
-                          <motion.div key={item.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.06 }} className="grid grid-cols-[1.2fr_1.4fr_1fr_0.7fr_0.9fr] items-center px-7 py-6">
+                          <motion.div key={item.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.06 }} className="grid grid-cols-1 gap-4 px-7 py-6 md:grid-cols-[1.2fr_1.4fr_1fr_0.7fr_0.9fr]">
                             <div><div className="text-lg font-black text-white">{item.name}</div><div className="mt-1 text-sm text-white/40">{item.school}</div><div className="mt-2 text-xs font-bold text-[#F6D365]">{item.id}</div></div>
                             <div><div className="text-sm font-bold text-white/80">{item.focus}</div><div className="mt-2 text-xs text-white/38">申请时间：{item.time}</div></div>
                             <div className="text-sm text-white/68">{item.city}</div>
@@ -356,7 +356,7 @@ const AdminDashboard = () => {
                 )}
 
                 {activeTab === 'objects' && (
-                  <motion.div key="objects" {...panelMotion} className="grid h-full grid-cols-[0.82fr_1.18fr] gap-5">
+                  <motion.div key="objects" {...panelMotion} className="grid h-full grid-cols-1 gap-5 xl:grid-cols-[0.82fr_1.18fr]">
                     <div className="grid grid-rows-[0.42fr_0.58fr] gap-5">
                       <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(52,16,16,0.92),rgba(19,8,8,0.92))] p-7">
                         <div className="mb-5 flex items-center justify-between">
@@ -384,12 +384,12 @@ const AdminDashboard = () => {
                       </div>
                     </div>
                     <div className="overflow-hidden rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(22,9,9,0.95),rgba(14,7,7,0.92))]">
-                      <div className="grid grid-cols-[0.8fr_1.1fr_1.2fr_0.8fr_1fr_0.95fr] border-b border-white/8 px-7 py-5 text-[11px] font-black uppercase tracking-[0.24em] text-white/35">
+                      <div className="grid grid-cols-1 gap-2 border-b border-white/8 px-7 py-5 text-[11px] font-black uppercase tracking-[0.24em] text-white/35 md:grid-cols-[0.8fr_1.1fr_1.2fr_0.8fr_1fr_0.95fr]">
                         <div>类型</div><div>村庄</div><div>核心需求</div><div>联系人</div><div>提交时间</div><div className="text-right">操作</div>
                       </div>
                       <div className="grid h-[calc(100%-72px)] auto-rows-fr divide-y divide-white/6">
                         {objects.map((item, index) => (
-                          <motion.div key={item.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.06 }} className="grid grid-cols-[0.8fr_1.1fr_1.2fr_0.8fr_1fr_0.95fr] items-center px-7 py-6">
+                          <motion.div key={item.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.06 }} className="grid grid-cols-1 gap-4 px-7 py-6 md:grid-cols-[0.8fr_1.1fr_1.2fr_0.8fr_1fr_0.95fr]">
                             <div><div className="font-black text-white">{item.type}</div><div className="mt-2 text-xs font-bold text-[#F6D365]">{item.id}</div></div>
                             <div className="text-sm text-white/72">{item.village}</div>
                             <div><div className="text-sm font-bold text-white/82">{item.need}</div><div className="mt-2"><span className={`inline-flex rounded-full px-3 py-2 text-xs font-black ${item.level === '高优先' ? 'bg-[#D4AF37]/14 text-[#F6D365]' : 'bg-white/8 text-white/68'}`}>{item.level}</span></div></div>
