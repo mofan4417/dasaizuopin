@@ -301,7 +301,7 @@ const VolunteerCenter = () => {
                     </div>
                     <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(22,9,9,0.95),rgba(14,7,7,0.92))] p-6">
                       <div className="mb-4 text-xl font-black text-white">等级阶梯</div>
-                      <div className="grid gap-3">
+                      <div className="panel-scrollbar panel-scroll-fade max-h-[520px] space-y-3 overflow-y-auto pr-1">
                         {levelLadder.map((item) => (
                           <div key={item.level} className={`flex items-center justify-between rounded-[22px] border px-5 py-4 ${item.level === level ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10' : 'border-white/8 bg-white/[0.03]'}`}>
                             <div>
