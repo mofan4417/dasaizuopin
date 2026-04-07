@@ -244,7 +244,13 @@ export const api = {
       if (error) throw error;
 
       const user = data.user;
-      if (!user) throw new Error('注册失败，请稍后重试');
+      if (!user) {
+        if (isRecoverableSupabaseAuthError('email not confirmed')) {
+          const localAccount = createLocalAccount(normalizedAccount, password);
+          return { user: toLocalAuthUser(localAccount), session: { user: toLocalAuthUser(localAccount) } };
+        }
+        throw new Error('注册失败，请稍后重试');
+      }
 
       await api.ensureVolunteerAccount({
         ...user,
@@ -261,7 +267,13 @@ export const api = {
         password,
       });
 
-      if (signInError) throw signInError;
+      if (signInError) {
+        if (isRecoverableSupabaseAuthError(signInError)) {
+          const localAccount = createLocalAccount(normalizedAccount, password);
+          return { user: toLocalAuthUser(localAccount), session: { user: toLocalAuthUser(localAccount) } };
+        }
+        throw signInError;
+      }
 
       return data;
     } catch (error) {
