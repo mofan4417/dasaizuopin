@@ -27,8 +27,13 @@ const AdminLogin = () => {
         const session = await api.getSession();
         if (!session) return;
         const role = await api.getMyRole();
-        setAdminStatus(role === 'admin');
-        navigate('/admin/dashboard');
+        const isAdmin = role === 'admin' || role === 'reviewer';
+        setAdminStatus(isAdmin);
+        if (isAdmin) {
+          navigate('/admin/dashboard');
+          return;
+        }
+        setError('当前账号不是管理员，请输入管理员账号密码。');
       } catch {
         // ignore
       }
