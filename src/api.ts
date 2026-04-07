@@ -59,6 +59,8 @@ const isRecoverableSupabaseAuthError = (error: unknown) => {
   const message = error instanceof Error ? error.message.toLowerCase() : String(error || '').toLowerCase();
   return (
     message.includes('rate limit') ||
+    message.includes('invalid email') ||
+    message.includes('email address') && message.includes('invalid') ||
     message.includes('email not confirmed') ||
     message.includes('email address not authorized') ||
     message.includes('signup is disabled') ||
