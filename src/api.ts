@@ -63,8 +63,22 @@ const isRecoverableSupabaseAuthError = (error: unknown) => {
     message.includes('email address not authorized') ||
     message.includes('signup is disabled') ||
     message.includes('database error saving new user') ||
+    message.includes('row-level security') ||
+    message.includes('permission denied') ||
+    message.includes('schema cache') ||
+    message.includes('does not exist') ||
     message.includes('failed to fetch') ||
     message.includes('network')
+  );
+};
+
+const isIgnorableProfileError = (error: unknown) => {
+  const message = error instanceof Error ? error.message.toLowerCase() : String(error || '').toLowerCase();
+  return (
+    message.includes('row-level security') ||
+    message.includes('permission denied') ||
+    message.includes('schema cache') ||
+    message.includes('does not exist')
   );
 };
 
@@ -463,7 +477,7 @@ export const api = {
     const { error: profileError } = await supabase
       .from('user_profiles')
       .upsert(profilePayload, { onConflict: 'user_id' });
-    if (profileError) throw profileError;
+    if (profileError && !isIgnorableProfileError(profileError)) throw profileError;
 
     const { error: progressError } = await supabase
       .from('volunteer_progress')
@@ -476,7 +490,7 @@ export const api = {
         },
         { onConflict: 'user_id' }
       );
-    if (progressError) throw progressError;
+    if (progressError && !isIgnorableProfileError(progressError)) throw progressError;
 
     const { error: presenceError } = await supabase
       .from('volunteer_presence')
@@ -490,7 +504,7 @@ export const api = {
         },
         { onConflict: 'user_id' }
       );
-    if (presenceError) throw presenceError;
+    if (presenceError && !isIgnorableProfileError(presenceError)) throw presenceError;
 
     return profilePayload;
   },
