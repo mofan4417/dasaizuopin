@@ -250,7 +250,7 @@ export default function ProvinceServiceMap({ className = '' }: ProvinceServiceMa
   );
 
   return (
-    <div className={`grid h-full gap-5 xl:grid-cols-[1.58fr_0.62fr] ${className}`}>
+    <div className={`grid h-full gap-4 xl:grid-cols-[1.58fr_0.62fr] ${className}`}>
       <div className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(31,8,10,0.94),rgba(14,5,6,0.96))] shadow-[0_40px_100px_rgba(0,0,0,0.32)]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(212,175,55,0.1),transparent_24%),radial-gradient(circle_at_72%_76%,rgba(139,0,0,0.34),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_28%)]" />
         <div className="relative z-10 flex items-center justify-between px-7 pt-5">
@@ -281,49 +281,49 @@ export default function ProvinceServiceMap({ className = '' }: ProvinceServiceMa
         </div>
       </div>
 
-      <div className="flex h-full min-h-0 flex-col gap-5">
-        <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 backdrop-blur-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+      <div className="flex h-full min-h-0 flex-col gap-4">
+        <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-5 backdrop-blur-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
           <div className="text-[11px] font-black uppercase tracking-[0.22em] text-white/35">Focused Province</div>
-          <div className="mt-2 flex items-end justify-between gap-4">
+          <div className="mt-1 flex items-end justify-between gap-4">
             <div>
-              <h4 className="text-[2rem] font-black text-white">{selectedProvince.name}</h4>
-              <div className="mt-1 text-sm text-white/55">当前省份服务关注度 {selectedProvince.value}</div>
+              <h4 className="text-[1.8rem] font-black text-white">{selectedProvince.name}</h4>
+              <div className="mt-1 text-xs text-white/55">当前省份服务关注度 {selectedProvince.value}</div>
             </div>
             <div className="rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/10 px-3 py-1.5 text-xs font-bold text-[#F2D98B]">
               实时焦点
             </div>
           </div>
 
-          <div className="mt-5 grid gap-3">
-            <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-4">
+          <div className="mt-4 grid gap-3">
+            <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-3">
               <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">留守儿童最需要的服务</div>
-              <div className="mt-2 text-[1.45rem] font-black text-[#fff2c6]">{selectedProvince.childNeed}</div>
-              <div className="mt-2 text-sm leading-6 text-white/68">{selectedProvince.childDetail}</div>
-              <div className="mt-3 text-xs text-white/45">当前覆盖儿童约 {selectedProvince.childCount.toLocaleString()} 人</div>
+              <div className="mt-2 text-[1.3rem] font-black text-[#fff2c6]">{selectedProvince.childNeed}</div>
+              <div className="mt-1 text-xs leading-6 text-white/68">{selectedProvince.childDetail}</div>
+              <div className="mt-2 text-xs text-white/45">当前覆盖儿童约 {selectedProvince.childCount.toLocaleString()} 人</div>
             </div>
 
-            <div className="rounded-[22px] border border-[#D4AF37]/12 bg-[linear-gradient(180deg,rgba(139,0,0,0.18),rgba(255,255,255,0.03))] p-4">
+            <div className="rounded-[22px] border border-[#D4AF37]/12 bg-[linear-gradient(180deg,rgba(139,0,0,0.18),rgba(255,255,255,0.03))] p-3">
               <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">留守老人最需要的服务</div>
-              <div className="mt-2 text-[1.45rem] font-black text-[#ffd7da]">{selectedProvince.elderlyNeed}</div>
-              <div className="mt-2 text-sm leading-6 text-white/68">{selectedProvince.elderlyDetail}</div>
-              <div className="mt-3 text-xs text-white/45">当前覆盖老人约 {selectedProvince.elderlyCount.toLocaleString()} 人</div>
+              <div className="mt-2 text-[1.3rem] font-black text-[#ffd7da]">{selectedProvince.elderlyNeed}</div>
+              <div className="mt-1 text-xs leading-6 text-white/68">{selectedProvince.elderlyDetail}</div>
+              <div className="mt-2 text-xs text-white/45">当前覆盖老人约 {selectedProvince.elderlyCount.toLocaleString()} 人</div>
             </div>
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-1">
-          <div className="rounded-[26px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-[24px]">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-1">
+          <div className="rounded-[26px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-[24px]">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">儿童服务重点</div>
-            <div className="mt-3 space-y-2 text-sm text-white/72">
+            <div className="mt-2 space-y-2 text-xs text-white/72">
               <div>课业辅导在中西部省份需求最集中。</div>
               <div>心理陪伴在流动人口输出省份持续上升。</div>
               <div>成长支持更适合做长期结对服务。</div>
             </div>
           </div>
 
-          <div className="rounded-[26px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-[24px]">
+          <div className="rounded-[26px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-[24px]">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">老人服务重点</div>
-            <div className="mt-3 space-y-2 text-sm text-white/72">
+            <div className="mt-2 space-y-2 text-xs text-white/72">
               <div>生活照料在西南与中部山区需求最高。</div>
               <div>健康探访适合作为高频入户服务。</div>
               <div>精神慰藉适合与社区陪伴计划结合。</div>
